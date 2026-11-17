@@ -1,0 +1,285 @@
+```html
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dyta Anggraeni | Portofolio Digital</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome untuk Ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        nature: {
+                            light: '#f4fbf7',
+                            mint: '#e0f2fe',
+                            green: '#10b981',
+                            darkGreen: '#047857',
+                            blue: '#0ea5e9',
+                            darkBlue: '#0369a1',
+                        }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-12px)' },
+                        },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-emerald-200 selection:text-emerald-900 overflow-x-hidden">
+
+    <!-- Dekorasi Latar Belakang Nuansa Alam (Blur Gradients) -->
+    <div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
+        <div class="absolute -top-40 -left-40 w-96 h-96 bg-emerald-200/40 rounded-full mix-blend-multiply filter blur-3xl opacity-70"></div>
+        <div class="absolute top-1/3 -right-40 w-96 h-96 bg-sky-200/50 rounded-full mix-blend-multiply filter blur-3xl opacity-70"></div>
+        <div class="absolute -bottom-40 left-1/3 w-96 h-96 bg-teal-200/40 rounded-full mix-blend-multiply filter blur-3xl opacity-70"></div>
+    </div>
+
+    <!-- Navigasi Utama (Glassmorphism) -->
+    <header class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-emerald-100/80 transition-all duration-300" id="navbar">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16 sm:h-20">
+                <!-- Logo / Nama -->
+                <a href="#hero" class="flex items-center gap-2.5 group">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-sky-500 flex items-center justify-center text-white font-heading font-bold text-lg shadow-md group-hover:scale-105 transition-transform">
+                        DA
+                    </div>
+                    <span class="font-heading font-bold text-lg sm:text-xl bg-gradient-to-r from-emerald-800 to-sky-800 bg-clip-text text-transparent">
+                        Dyta Anggraeni
+                    </span>
+                </a>
+
+                <!-- Menu Desktop -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#hero" class="text-sm font-medium text-slate-600 hover:text-emerald-600 transition-colors">Beranda</a>
+                    <a href="#about" class="text-sm font-medium text-slate-600 hover:text-emerald-600 transition-colors">Tentang Saya</a>
+                    <a href="#skills" class="text-sm font-medium text-slate-600 hover:text-emerald-600 transition-colors">Keahlian</a>
+                    <a href="#projects" class="text-sm font-medium text-slate-600 hover:text-emerald-600 transition-colors">Portofolio</a>
+                    <a href="#contact" class="px-5 py-2.5 rounded-full text-sm font-semibold text-white bg-gradient-to-r from-emerald-500 to-sky-500 hover:from-emerald-600 hover:to-sky-600 shadow-sm hover:shadow-md transition-all">
+                        Hubungi Saya
+                    </a>
+                </nav>
+
+                <!-- Tombol Menu Mobile -->
+                <button id="mobile-menu-btn" aria-label="Buka Menu" class="md:hidden p-2.5 rounded-xl text-slate-600 hover:bg-emerald-50 hover:text-emerald-600 focus:outline-none transition-colors">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Dropdown Menu Mobile -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-emerald-100 px-4 pt-2 pb-5 space-y-2 shadow-lg">
+            <a href="#hero" class="mobile-link block px-4 py-2.5 rounded-xl text-base font-medium text-slate-700 hover:bg-emerald-50 hover:text-emerald-700">Beranda</a>
+            <a href="#about" class="mobile-link block px-4 py-2.5 rounded-xl text-base font-medium text-slate-700 hover:bg-emerald-50 hover:text-emerald-700">Tentang Saya</a>
+            <a href="#skills" class="mobile-link block px-4 py-2.5 rounded-xl text-base font-medium text-slate-700 hover:bg-emerald-50 hover:text-emerald-700">Keahlian</a>
+            <a href="#projects" class="mobile-link block px-4 py-2.5 rounded-xl text-base font-medium text-slate-700 hover:bg-emerald-50 hover:text-emerald-700">Portofolio</a>
+            <a href="#contact" class="mobile-link block px-4 py-2.5 rounded-xl text-base font-semibold text-emerald-700 bg-emerald-50">Hubungi Saya</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- ========================================== -->
+        <!-- 1. HERO SECTION                            -->
+        <!-- ========================================== -->
+        <section id="hero" class="min-h-screen flex items-center pt-24 pb-16 px-4 sm:px-6 lg:px-8 relative">
+            <div class="max-w-6xl mx-auto w-full">
+                <!-- Grid 2 Kolom Kiri dan Kanan yang Seimbang -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center">
+                    
+                    <!-- Kolom Kiri: Nama Lengkap & Tombol Follow Me -->
+                    <div class="flex flex-col justify-center space-y-6 text-center lg:text-left order-2 lg:order-1 animate-fade-in-up">
+                        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-emerald-200/80 shadow-sm w-fit mx-auto lg:mx-0">
+                            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                            <span class="text-xs sm:text-sm font-medium text-emerald-800">Manajemen Perkantoran & Layanan Bisnis</span>
+                        </div>
+
+                        <div class="space-y-3">
+                            <p class="text-base sm:text-lg font-medium text-sky-700">Halo, Selamat Datang! Saya</p>
+                            <h1 class="font-heading text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-tight">
+                                Dyta <span class="bg-gradient-to-r from-emerald-600 via-teal-600 to-sky-600 bg-clip-text text-transparent">Anggraeni</span>
+                            </h1>
+                        </div>
+
+                        <p class="text-slate-600 text-base sm:text-lg max-w-xl mx-auto lg:mx-0 leading-relaxed">
+                            Siswi SMK Cyber Media yang berdedikasi tinggi dalam administrasi perkantoran modern, pelayanan bisnis, serta pengembangan solusi digital yang efisien dan terstruktur.
+                        </p>
+
+                        <!-- Tombol Follow Me ke Instagram @dytnggr4eni -->
+                        <div class="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                            <a href="https://instagram.com/dytnggr4eni" target="_blank" rel="noopener noreferrer" 
+                               class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl font-semibold text-white bg-gradient-to-r from-emerald-600 to-sky-600 hover:from-emerald-700 hover:to-sky-700 shadow-lg shadow-emerald-500/25 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300">
+                                <i class="fab fa-instagram text-xl"></i>
+                                <span>Follow Me (@dytnggr4eni)</span>
+                            </a>
+                            <a href="#projects" 
+                               class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-4 rounded-2xl font-semibold text-slate-700 bg-white border border-slate-200 hover:border-emerald-300 hover:bg-emerald-50/50 transition-all duration-300">
+                                <span>Lihat Karya</span>
+                                <i class="fas fa-arrow-down text-sm text-emerald-600"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Kolom Kanan: Foto Profil (Ukuran Proporsional dengan Bagian Kiri) -->
+                    <div class="flex justify-center lg:justify-end order-1 lg:order-2">
+                        <div class="relative w-full max-w-sm sm:max-w-md aspect-[4/5] lg:aspect-square flex items-center justify-center animate-float">
+                            <!-- Lapisan Bingkai Nuansa Alam -->
+                            <div class="absolute inset-2 bg-gradient-to-tr from-emerald-400 to-sky-400 rounded-[2.5rem] rotate-3 opacity-30 blur-sm"></div>
+                            <div class="absolute inset-2 bg-gradient-to-bl from-sky-300 to-emerald-300 rounded-[2.5rem] -rotate-3 opacity-50"></div>
+                            
+                            <!-- Container Foto Utama -->
+                            <div class="relative w-full h-full rounded-[2.25rem] overflow-hidden bg-white p-3 shadow-2xl border border-white/80">
+                                <div class="w-full h-full rounded-[1.75rem] overflow-hidden relative bg-gradient-to-b from-sky-100 to-emerald-50">
+                                    <!-- Foto Profil dengan Fallback Otomatis -->
+                                    <img 
+                                        src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80" 
+                                        alt="Foto Profil Dyta Anggraeni" 
+                                        onerror="this.onerror=null; this.src='https://placehold.co/600x600/e0f2fe/047857?text=Dyta+Anggraeni';"
+                                        class="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-700"
+                                    >
+                                    <!-- Overlay Gradasi Halus di Bawah Foto -->
+                                    <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-emerald-950/70 via-emerald-900/20 to-transparent p-6 text-white">
+                                        <div class="flex items-center gap-2 text-xs font-medium text-emerald-200 mb-1">
+                                            <i class="fas fa-leaf"></i>
+                                            <span>SMK Cyber Media</span>
+                                        </div>
+                                        <p class="font-heading font-bold text-lg">Dyta Anggraeni</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Floating Badge Dekoratif -->
+                            <div class="hidden sm:flex items-center gap-3 absolute -bottom-4 -left-4 bg-white/95 backdrop-blur-md px-4 py-3 rounded-2xl shadow-lg border border-emerald-100">
+                                <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center">
+                                    <i class="fas fa-briefcase"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-slate-500 font-medium">Kompetensi</p>
+                                    <p class="text-sm font-bold text-slate-800">Jurusan MPLB</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- 2. ABOUT SECTION                           -->
+        <!-- ========================================== -->
+        <section id="about" class="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 bg-white/80 backdrop-blur-sm border-y border-emerald-100/60">
+            <div class="max-w-5xl mx-auto">
+                <!-- Header Section -->
+                <div class="text-center max-w-2xl mx-auto mb-14">
+                    <span class="inline-block px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase bg-emerald-100/80 text-emerald-800 mb-3">
+                        Tentang Saya
+                    </span>
+                    <h2 class="font-heading text-3xl sm:text-4xl font-bold text-slate-900">
+                        Mengenal Lebih Dekat <span class="text-emerald-600">Dyta Anggraeni</span>
+                    </h2>
+                </div>
+
+                <!-- Konten About Card -->
+                <div class="bg-gradient-to-br from-white via-emerald-50/30 to-sky-50/40 rounded-3xl p-6 sm:p-10 lg:p-12 shadow-xl shadow-emerald-900/5 border border-emerald-100">
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                        <!-- Ilustrasi / Highlight Pendidikan -->
+                        <div class="md:col-span-5 space-y-4">
+                            <div class="p-6 rounded-2xl bg-white shadow-sm border border-sky-100">
+                                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500 to-sky-500 text-white flex items-center justify-center text-xl mb-4 shadow-md">
+                                    <i class="fas fa-school"></i>
+                                </div>
+                                <h3 class="font-heading font-bold text-lg text-slate-900">SMK Cyber Media</h3>
+                                <p class="text-sm font-medium text-emerald-700 mt-1">Jurusan MPLB</p>
+                                <p class="text-xs text-slate-500 mt-0.5">(Manajemen Perkantoran dan Layanan Bisnis)</p>
+                            </div>
+
+                            <div class="p-6 rounded-2xl bg-white shadow-sm border border-emerald-100">
+                                <div class="w-12 h-12 rounded-xl bg-sky-100 text-sky-600 flex items-center justify-center text-xl mb-4">
+                                    <i class="fas fa-seedling"></i>
+                                </div>
+                                <h3 class="font-heading font-bold text-lg text-slate-900">Fokus & Tujuan</h3>
+                                <p class="text-sm text-slate-600 mt-1">Mencari pengalaman kerja & magang di bidang administrasi perkantoran.</p>
+                            </div>
+                        </div>
+
+                        <!-- Penjelasan Lengkap -->
+                        <div class="md:col-span-7 space-y-5 text-slate-600 text-base sm:text-lg leading-relaxed">
+                            <p>
+                                Halo! Saya <strong class="text-slate-900 font-semibold">Dyta Anggraeni</strong>, seorang siswi aktif yang saat ini menempuh pendidikan di <strong class="text-emerald-700 font-semibold">SMK Cyber Media</strong> dengan mengambil jurusan <strong class="text-sky-700 font-semibold">MPLB (Manajemen Perkantoran dan Layanan Bisnis)</strong>.
+                            </p>
+                            <p>
+                                Selama masa pendidikan, saya dilatih untuk memiliki ketelitian tinggi, kemampuan komunikasi yang baik, pengelolaan dokumen secara digital maupun fisik, serta etika pelayanan bisnis yang profesional. Saya juga memiliki ketertarikan pada pemanfaatan teknologi web dasar untuk membantu efisiensi kerja administratif.
+                            </p>
+                            <p>
+                                Saat ini, saya <strong class="text-slate-900 font-semibold">sedang aktif mencari pengalaman di bidang yang saya ampu yaitu perkantoran</strong>, baik melalui kesempatan praktik kerja lapangan (PKL), magang, maupun kontribusi proyek nyata agar dapat mengaplikasikan ilmu yang telah saya pelajari secara langsung di dunia profesional.
+                            </p>
+
+                            <div class="pt-4 grid grid-cols-2 sm:grid-cols-3 gap-4 border-t border-emerald-100">
+                                <div>
+                                    <p class="text-xs text-slate-400 uppercase font-semibold">Kompetensi</p>
+                                    <p class="text-sm font-bold text-slate-800 mt-0.5">Administrasi & Arsip</p>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-slate-400 uppercase font-semibold">Layanan</p>
+                                    <p class="text-sm font-bold text-slate-800 mt-0.5">Komunikasi Bisnis</p>
+                                </div>
+                                <div class="col-span-2 sm:col-span-1">
+                                    <p class="text-xs text-slate-400 uppercase font-semibold">Status</p>
+                                    <p class="text-sm font-bold text-emerald-600 mt-0.5">Siap Berkembang</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- 3. SKILL SECTION                           -->
+        <!-- ========================================== -->
+        <section id="skills" class="py-20 sm:py-28 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-6xl mx-auto">
+                <!-- Header Section -->
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <span class="inline-block px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase bg-sky-100 text-sky-800 mb-3">
+                        Kompetensi & Keahlian
+                    </span>
+                    <h2 class="font-heading text-3xl sm:text-4xl font-bold text-slate-900">
+                        Tingkat Penguasaan <span class="text-sky-600">Keahlian</span>
+                    </h2>
+                    <p class="text-slate-600 mt-3 text-sm sm:text-base">
+                        Klasifikasi kemampuan perangkat lunak perkantoran dan pengembangan web dasar yang saya kuasai.
+                    </p>
+                </div>
+
+                <!-- Grid 3 Kategori Tingkatan Skill -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    
+                    <!-- Level 1: ADVANCE -->
+                    <div class="bg-white rounded-3xl p-7 sm:p-8 shadow-lg shadow-emerald-900/5 border-t-4 border-emerald-500 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between">
+               
